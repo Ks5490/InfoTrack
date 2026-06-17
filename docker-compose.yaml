@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  api:
+    image: conveyancing_middleware
+    container_name: conveyancing_middleware
+    build:
+      context: ./SolSearchMiddleware
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
+  UI:
+    image: conveyancing_ui
+    container_name: conveyancing_ui
+    build:
+      context: ./SolSearchUI
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    restart: always
